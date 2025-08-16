@@ -1,0 +1,402 @@
+[
+    {
+        "question": "Where can students find their course assignments?",
+        "answer": "Students can find all their course assignments on the Assignments page."
+    },
+    {
+        "question": "Can you explain the steps a student needs to take to view their assignments?",
+        "answer": "To view their assignments, a student simply needs to navigate to the Assignments page where all course assignments are listed."
+    },
+    {
+        "question": "How can students access their assignments if the Assignments link is not available in Course Navigation?",
+        "answer": "Students can still access their assignments through their user or course dashboard, the Syllabus, Gradebook, Calendar, or Modules."
+    },
+    {
+        "question": "What features are available in the Assignments section of the course?",
+        "answer": "In the Assignments section, students can view all assignments grouped by overdue, upcoming, undated, and past assignments."
+    },
+    {
+        "question": "Can you describe the different categories of assignments a student may encounter?",
+        "answer": "Assignments are categorized into four groups: Overdue Assignments, which are past the due date but still accessible; Upcoming Assignments, which have a forthcoming due date; Undated Assignments, which have no due date; and Past Assignments, which are past the due date and may have been submitted or graded."
+    },
+    {
+        "question": "What happens to overdue assignments that have not been submitted?",
+        "answer": "Overdue assignments that are past the due date remain available for submission but have not yet been graded."
+    },
+    {
+        "question": "How can students filter their assignments by type in a course?",
+        "answer": "Students can filter assignments by type by clicking on the Assignments link in Course Navigation, then selecting the Show By Type button to view assignments grouped by type."
+    },
+    {
+        "question": "What feature allows students to view the worth of each assignment grouping towards their final grade?",
+        "answer": "When students use the Show By Type feature, they can see how much each grouping of assignments will contribute to their final grade."
+    },
+    {
+        "question": "What is a rubric in the context of assignments, and how can it help students evaluate their work before submission?",
+        "answer": "A rubric is a set of criteria provided by the instructor that outlines how an assignment will be graded. It helps students evaluate their own work by ensuring it meets the required standards before submission."
+    },
+    {
+        "question": "Where can a student find the rubric for a graded assignment, and why is it important to review it?",
+        "answer": "Students can view the rubric for a graded assignment on the Grades page or from the assignment details page. Reviewing the rubric is important as it allows students to understand the grading criteria and ensure their work aligns with the instructor's expectations."
+    },
+    {
+        "question": "What are some key features of the assignment rubrics mentioned in the notes?",
+        "answer": "The assignment rubrics may include criteria, ratings, and full point values, with some criteria offering up to five different ratings."
+    },
+    {
+        "question": "How can students access the rubrics for their assignments, especially for external tool assignments?",
+        "answer": "Students can view rubrics for external tool assignments on the submissions detail page, either before or after submitting the assignment."
+    },
+    {
+        "question": "What should students do if they notice their assignment displays differently?",
+        "answer": "If the assignment displays differently, it may be using the Assignment Enhancements feature, and students are advised to click on the assignment name to check the details."
+    },
+    {
+        "question": "What is the significance of outcomes identified in the rubric, and how are they used in assessing student mastery?",
+        "answer": "Outcomes are associated with course assessments and indicate the threshold points required to meet expectations, which helps instructors evaluate learning mastery in a course."
+    },
+    {
+        "question": "Can a rubric include feedback for assignments even if it doesn't have point values?",
+        "answer": "Yes, an instructor may use a rubric to provide feedback on an assignment even if it does not include specific point values for the criteria."
+    },
+    {
+        "question": "What are the different ways students can submit an online assignment?",
+        "answer": "Students can submit online assignments through various methods, which depend on the platform and instructor's guidelines provided during the course."
+    },
+    {
+        "question": "What submission types can be used for online assignments in Canvas?",
+        "answer": "Instructors in Canvas can choose from several submission types for online assignments."
+    },
+    {
+        "question": "Can students resubmit assignments in Canvas if permitted by their instructor?",
+        "answer": "Yes, students may have the option to resubmit assignments if their instructor allows it."
+    },
+    {
+        "question": "What happens to attachments made during assignment submissions in Canvas?",
+        "answer": "Any attachments added to a graded assignment submission are copied to your user files but do not count against your user quota."
+    },
+    {
+        "question": "Is it possible to delete a file once it has been uploaded as an assignment submission in Canvas?",
+        "answer": "No, once a file has been uploaded as a submission, it cannot be deleted."
+    },
+    {
+        "question": "Before submitting an assignment in Canvas, what should students consider reviewing?",
+        "answer": "Students should consider reviewing all assignment information, including the assignment rubric, if applicable."
+    },
+    {
+        "question": "What are the two methods for submitting assignments from third-party file applications?",
+        "answer": "The two methods for submitting assignments are: downloading the file to your computer and submitting it as a File Upload, or sharing the file, copying the file URL, and submitting it as a Website URL."
+    },
+    {
+        "question": "Can I submit my assignments directly from Google Drive or Dropbox? If so, how?",
+        "answer": "Yes, you can submit assignments directly from Google Drive, Dropbox, or other third-party services by either downloading the file to your computer and then submitting it, or by sharing the file, copying the URL, and submitting it as a Website URL."
+    },
+    {
+        "question": "How can I submit assignments using my mobile devices?",
+        "answer": "You can submit assignments using either your Android or iOS device."
+    },
+    {
+        "question": "What platforms are supported for mobile assignment submissions?",
+        "answer": "Assignments can be submitted on both Android and iOS platforms."
+    },
+    {
+        "question": "What types of file uploads are limited by Canvas during assignment submission?",
+        "answer": "Canvas does not support file uploads larger than 5 GB."
+    },
+    {
+        "question": "How can a student submit an online assignment on Canvas?",
+        "answer": "To submit an online assignment on Canvas, a student must click the 'Assignments' link in Course Navigation, select the assignment name, and then click the 'Start Assignment' button."
+    },
+    {
+        "question": "What should a student do if they cannot see the 'Submit Assignment' link for a submission?",
+        "answer": "If a student cannot see the 'Submit Assignment' link, they should check the assignment description for submission instructions or contact their instructor for assistance."
+    },
+    {
+        "question": "What happens in Canvas when an assignment is submitted on time? Can this feature be disabled?",
+        "answer": "If enabled, Canvas plays a celebration animation to acknowledge timely submission of an assignment, and students have the option to disable this feature in their user settings."
+    },
+    {
+        "question": "What should you do if you cannot see the Start Assignment button for your assignment?",
+        "answer": "If you cannot see the Start Assignment button, check the assignment description for instructions or contact your instructor for assistance."
+    },
+    {
+        "question": "How many submission attempts are you allowed for an assignment, and where can you find this information?",
+        "answer": "The number of submission attempts for an assignment is determined by your instructor, and you can view the number of attempts you have made along with the total attempts allowed in the assignment details."
+    },
+    {
+        "question": "Can you explain the different types of submissions allowed for your assignments and any limitations associated with them?",
+        "answer": "Assignments may allow four submission types: file uploads, text entries, website URLs, or media submissions, but you are limited to selecting only one submission type per attempt."
+    },
+    {
+        "question": "What should you do if you have exhausted all your submission attempts for an assignment?",
+        "answer": "If you have used all your submission attempts, you will see that the New Attempt button is disabled, and you should consult your instructor regarding further options."
+    },
+    {
+        "question": "What steps should students follow to submit a text entry assignment in the Rich Content Editor?",
+        "answer": "Students should select the Text Entry tab to begin submitting their assignment, ensuring they check the word count display for compliance."
+    },
+    {
+        "question": "How can students confirm that their assignment has been successfully submitted?",
+        "answer": "To verify submission, students can view the assignment submission details and check their personal unfiled folder for all file submissions."
+    },
+    {
+        "question": "What indicates that there has been a change to course grades after submission?",
+        "answer": "The Grades link in Course Navigation will display an indicator representing the number of changes in the course since the student's last visit."
+    },
+    {
+        "question": "What features should students use if they want to be notified when their instructor grades an assignment?",
+        "answer": "Students can set up notifications to alert them when there are changes to their course grades, which includes feedback on assignments."
+    },
+    {
+        "question": "How can students access their graded assignments in the course navigation system?",
+        "answer": "Students can access their graded assignments by clicking the Grades link in Course Navigation."
+    },
+    {
+        "question": "What indicators can students look for to determine if an assignment has been graded?",
+        "answer": "A dot next to the assignment indicates that it has been graded; this indicator disappears when the page is refreshed or you navigate away."
+    },
+    {
+        "question": "Where can students find comments and feedback from their instructor on graded assignments?",
+        "answer": "Comments from the instructor can be found in the Grades page, primarily in the assignment sidebar, and may also appear as annotations or media comments within the assignment submission."
+    },
+    {
+        "question": "What steps should a student follow to view comments on their assignments?",
+        "answer": "To view comments on assignments, a student should click the Grades link, locate their assignment, and then click the Comment icon to see the comments. They can also click the Feedback icon to view media comments and other attachments."
+    },
+    {
+        "question": "What types of comments can instructors provide on student submissions?",
+        "answer": "Instructors can leave text comments, media comments, or attach files to student submissions."
+    },
+    {
+        "question": "How can students view media comments or annotated feedback on their assignments?",
+        "answer": "Students can view a media comment by clicking the Play button, and to see annotated feedback on a file upload, they can click the View Feedback link next to their submission."
+    },
+    {
+        "question": "If an assignment includes a rubric, how can students check for instructor feedback?",
+        "answer": "Students can check the rubric for comments by clicking the Show Rubric link, which indicates if comments have been added."
+    },
+    {
+        "question": "Can students add their own comments to their assignment submissions, and if so, who receives those comments?",
+        "answer": "Yes, students can add comments to their assignment submissions, and all comments left on a group assignment are sent to the instructor and shared with the entire group."
+    },
+    {
+        "question": "What should you do if you want to comment on your group assignment submission only to your instructor?",
+        "answer": "You should select the option to 'Send comment to instructor only' before submitting your comment."
+    },
+    {
+        "question": "How can you submit a media comment along with your group assignment?",
+        "answer": "To submit a media comment, you need to click the 'Media Comment' link, which allows you to record and send a video or audio comment to your instructor."
+    },
+    {
+        "question": "If you wish to communicate with both your instructor and the entire group about your assignment, what option should you choose?",
+        "answer": "You should select the 'Send comment to the whole group' option when submitting your comment."
+    },
+    {
+        "question": "Describe the steps to add an emoji to your submission comments if your instructor has enabled this feature.",
+        "answer": "To add an emoji, click on the emoji menu, select the desired emoji, or pick one from the recently used menu if you have used it before."
+    },
+    {
+        "question": "What historical milestones contributed to the establishment of BITS Pilani as a major educational institution in India?",
+        "answer": "BITS Pilani began as a small 'pathashala' in 1901, evolving through various stages into a high school in 1925, an intermediate college in 1929, a degree college in 1943, and finally a postgraduate degree college in 1947."
+    },
+    {
+        "question": "How did BITS Pilani respond to the educational needs during World War II, and what was the significance of this action?",
+        "answer": "During World War II, the Government of India established a Technical Training Centre at Pilani through BITS Pilani to create technicians for the Defence Services industry, highlighting the institute's role in meeting national needs."
+    },
+    {
+        "question": "What was the strategic plan introduced in 2000 for BITS Pilani, and how did it influence the Work Integrated Learning Programmes?",
+        "answer": "In 2000, BITS Pilani launched a strategic plan aimed at becoming a leading global university, where Work Integrated Learning Programmes were identified as a crucial element in achieving this vision."
+    },
+    {
+        "question": "In what ways has the Work Integrated Learning Program (WILP) positioned BITS Pilani within the corporate education landscape in India?",
+        "answer": "WILP has emerged as a key program making BITS Pilani India's leading corporate education provider, attracting top engineering professionals and solidifying its reputation in the educational sector."
+    },
+    {
+        "question": "What is the main mission of BITS as outlined in their educational objectives?",
+        "answer": "The primary mission of BITS is to promote education and research in various fields including Technology, Science, Humanities, and Business, with the aim of enhancing the material and industrial welfare of India."
+    },
+    {
+        "question": "How does the Work Integrated Learning Programmes (WILP) support working professionals in their education?",
+        "answer": "The WILP provides high-quality education experiences aligned with industry practices, allowing professionals to pursue advanced degrees and certificates without leaving their jobs, ensuring that their work and learning mutually benefit each other."
+    },
+    {
+        "question": "What types of programmes are offered through WILP and how long has it been serving professionals in India?",
+        "answer": "WILP has been offering B.Tech., M.Tech., M.Sc., MBA, and Certificate programmes for over 43 years, having enabled more than 114,000 engineering and technology professionals across various industries such as IT, Automotive, and Manufacturing to enhance their careers."
+    },
+    {
+        "question": "In what way does BITS aim to create a beneficial cycle for students enrolled in WILP?",
+        "answer": "BITS aims to create a win-win situation where the work experience of students contributes to their learning in the WILP, and the insights gained from the programme help them advance in their professional roles."
+    },
+    {
+        "question": "What distinguishes Work Integrated Learning Programmes (WILP) from traditional distance learning methods?",
+        "answer": "WILP offers a rigorous learning experience akin to on-campus programs from BITS Pilani and is designed to integrate academic content with workplace requirements, unlike traditional distance learning, eLearning, or part-time courses."
+    },
+    {
+        "question": "Can you explain how Work Integrated Learning Programmes support both professional and educational development?",
+        "answer": "WILP enables individuals to pursue higher education while advancing their careers, offering an industry-relevant curriculum, experiential learning opportunities, and access to expert faculty through technology-enabled classrooms."
+    },
+    {
+        "question": "What are some key features of the WILP that enhance the learning experience for students?",
+        "answer": "Key features include access to virtual and remote labs, case studies that reflect real-work situations, dissertation and project work, continuous assessment through graded assignments, and the flexibility of anytime digital learning."
+    },
+    {
+        "question": "How does WILP incorporate technology to facilitate learning and assessment?",
+        "answer": "WILP utilizes interactive virtual classrooms for engagement with faculty, provides recorded lectures and programme handouts for flexible learning, and implements continuous assessments through quizzes and exams for evaluating student progress."
+    },
+    {
+        "question": "What is the significance of BITS Pilani's Work Integrated Learning Programmes (WILP) as per UGC regulations?",
+        "answer": "BITS Pilani's WILP are educational offerings specifically designed for working professionals, approved under UGC's Institution of Eminence Regulations, emphasizing both academic rigor and practical experience."
+    },
+    {
+        "question": "Could you explain how the WILP at BITS Pilani benefits working professionals?",
+        "answer": "The WILP at BITS Pilani allows working professionals to integrate their practical experience with academic learning, enhancing their knowledge, skills, and productivity while pursuing degrees, diplomas, or certificates in various fields."
+    },
+    {
+        "question": "When did the UGC approve the continuation of BITS Pilani's Work Integrated Learning programmes, and what was the context of this approval?",
+        "answer": "On September 9, 2020, during its 548th Meeting, the UGC approved the continued offering of BITS Pilani's Work Integrated Learning programmes based on the recommendations of the Empowered Expert Committee."
+    },
+    {
+        "question": "How do BITS Pilani’s WILP compare with regular programmes in terms of academic standards?",
+        "answer": "The Work Integrated Learning programmes at BITS Pilani are designed to be comparable to regular programmes regarding unit/credit requirements and academic rigor, ensuring high-quality education for students."
+    },
+    {
+        "question": "What is required for a student to complete the registration process for the Work-Integrated Learning Programmes each semester?",
+        "answer": "A student must send the duly signed Registration Card along with the payment for the semester fees to complete the registration process."
+    },
+    {
+        "question": "How does the fee payment structure work for students in the Work-Integrated Learning Programmes?",
+        "answer": "Students are required to pay the full semester fees for every semester they register, regardless of the number of courses in their prescribed course package."
+    },
+    {
+        "question": "How does BITS Pilani conduct internal evaluations for its courses?",
+        "answer": "BITS Pilani employs a continuous system of internal evaluation using a Relative Grading procedure."
+    },
+    {
+        "question": "What letter grades does BITS Pilani use, and how do they correspond to grade points?",
+        "answer": "BITS Pilani awards letter grades such as A, A-, B, B-, C, C-, D, and E, which correspond to grade points of 10, 9, 8, 7, 6, 5, 4, and 2 respectively."
+    },
+    {
+        "question": "What grading system is applied to Dissertation or Project Work at BITS Pilani?",
+        "answer": "For Dissertation or Project Work, BITS Pilani uses Non-Letter Grades such as EXCELLENT, GOOD, FAIR, and POOR instead of the standard letter grades."
+    },
+    {
+        "question": "What happens if a student does not meet the evaluation requirements in a course at BITS Pilani?",
+        "answer": "If a student fails to provide sufficient opportunity for evaluation in a course, they may receive a report grade of NC (Not Cleared)."
+    },
+    {
+        "question": "How many Evaluation Components are typically included for each course in a semester?",
+        "answer": "Typically, there are 3 Evaluation Components for each course in each semester."
+    },
+    {
+        "question": "Can you explain how the Evaluation Components are distributed over the semester for each course?",
+        "answer": "The Evaluation Components are spread over the semester according to the dates specified in the Course Handout for each course."
+    },
+    {
+        "question": "What are the different components used for evaluation in this program and their respective weightages?",
+        "answer": "The evaluation components include Assignment/Quiz (Online) with a weightage of 15%, a Mid-Semester Test with a weightage of 35%, and a Comprehensive Exam with a weightage of 50%."
+    },
+    {
+        "question": "Could you describe how the evaluations in this program are conducted and who oversees them?",
+        "answer": "All evaluations, including assignments, mid-semester tests, and comprehensive exams, are given and evaluated by BITS Faculty."
+    },
+    {
+        "question": "What is the significance of the weightage distribution for evaluation components, and can it change?",
+        "answer": "The weightage distribution for evaluation components serves as an indicative guide and may vary from course to course, indicating that it is subject to change."
+    },
+    {
+        "question": "Where are the mid-semester and comprehensive exams administered, and how will the centers be communicated to students?",
+        "answer": "The mid-semester and comprehensive exams are conducted in various centers including Bangalore, Chennai, Delhi NCR, and others. The details of these exam centers will be shared by BITS Pilani in due course."
+    },
+    {
+        "question": "How is the final letter grade for a student determined at the end of each semester?",
+        "answer": "The final letter grade is determined through a Relative Grading procedure where students' total marks are tabulated in descending order, and grades are assigned based on analyses of average, highest, and lowest marks."
+    },
+    {
+        "question": "What factors are considered in establishing the dividing lines between different grades in a relative grading system?",
+        "answer": "Factors considered include the analysis of average, highest, and lowest marks, as well as the gaps and nature of clusters formed by student performances, which help determine where dividing lines between grades are drawn."
+    },
+    {
+        "question": "Who must approve the final grading of a course at BITS Pilani before it is announced?",
+        "answer": "The final grading must be approved by the Examination Committee at BITS Pilani before being announced."
+    },
+    {
+        "question": "Can you explain the steps involved in the relative grading procedure at BITS Pilani at the end of a semester?",
+        "answer": "At the end of each semester, students' total marks are first tabulated in descending order to create a histogram. Next, the performance of the course is analyzed to find the average, highest, and lowest marks, along with identifying clusters in performance, before determining the dividing lines for letter grades, which ultimately require approval from the Examination Committee."
+    },
+    {
+        "question": "How is the Cumulative Grade Point Average (CGPA) calculated for students?",
+        "answer": "The Cumulative Grade Point Average (CGPA) is calculated by summing the products of the units of each course and the grade points corresponding to the letter grades earned, then dividing this sum by the total number of units for the courses taken."
+    },
+    {
+        "question": "What is the significance of CGPA in evaluating a student's academic performance?",
+        "answer": "CGPA is used to describe the overall academic performance of a student on a 10 point scale, encompassing all courses for which letter grades are awarded, and it excludes non-letter grades from the calculation."
+    },
+    {
+        "question": "What are the minimum CGPA requirements for students in M.Tech., MBA, and Post Graduate programs to successfully complete their degrees?",
+        "answer": "Students in M.Tech., MBA, and Post Graduate programs must obtain a minimum CGPA of 5.50 and should not have any E Grades or RRA Reports in any course."
+    },
+    {
+        "question": "What consequences do students face if they fail to meet the minimum academic requirements for their degree program?",
+        "answer": "If students fail to meet the minimum academic requirements, they will be monitored by the Academic Monitoring Board (AMB), which will prescribe a suitable course package for an additional semester and closely track their progress and performance."
+    },
+    {
+        "question": "Are students allowed to register for other courses while completing their Dissertation in M.Tech. or Project Work in B.Tech.?",
+        "answer": "No, students cannot register for any other courses of their degree program while they are completing their Dissertation in M.Tech. or Project Work in B.Tech."
+    },
+    {
+        "question": "Can you provide details regarding the issuance of grade sheets and certificates upon successful completion of a program?",
+        "answer": "Upon fulfilling the Academic Regulations of the Institute, students will receive a grade sheet at the end of each semester, followed by a Transcript, a Provisional Certificate, and finally the Final Degree Certificate at the end of the program."
+    },
+    {
+        "question": "What are the requirements for B.Tech. and M.Tech. students to register for their final semester projects or dissertations?",
+        "answer": "B.Tech. students must register for a full semester Project Work, while M.Tech. students are required to register for a full semester Dissertation in their final semester. Both must complete prescribed coursework and meet minimum academic requirements first."
+    },
+    {
+        "question": "What happens if a student's academic performance does not meet the minimum requirements before their final semester project or dissertation?",
+        "answer": "If a student's academic performance falls below the minimum requirements, they must retake certain courses in a subsequent semester to improve their CGPA before they can register for their Project Work or Dissertation."
+    },
+    {
+        "question": "How does a change in employer or mentor affect a student's status in the Work Integrated Learning Programmes?",
+        "answer": "Students in the Work Integrated Learning Programmes must inform the Dean of any changes to their employer or mentor, and such changes must be approved. Failure to do so can result in Discontinuation from the Programme."
+    },
+    {
+        "question": "Can a student continue with their Project Work or Dissertation if they fall below the required CGPA before their final semester?",
+        "answer": "No, students who fall below the required CGPA must first improve their academic standing by retaking courses before they can register for their Project Work or Dissertation."
+    },
+    {
+        "question": "How can students utilize the Calendar feature effectively for their courses?",
+        "answer": "Students can use the Calendar to view all their course-related tasks in one place, with options to see events by day, week, month, or agenda. This helps them stay organized and manage their time effectively."
+    },
+    {
+        "question": "What happens to the Calendar's week start date if a student changes their language or locale settings?",
+        "answer": "If a student changes their language or locale preferences, the Calendar's week start date may also change to align with the conventions of the selected language or locale, which could result in the week starting on Monday instead of Sunday."
+    },
+    {
+        "question": "What features does the Calendar include for managing course events?",
+        "answer": "The Calendar includes a visual display of events from all enrolled courses and groups, allows selection between Week, Month, or Agenda views, and features a sidebar that provides a quick view of the calendar, lists courses and groups, and shows undated items."
+    },
+    {
+        "question": "Can you describe the visual display options available in the Calendar for students?",
+        "answer": "The Calendar offers several display options, allowing students to switch between Week, Month, or Agenda views to best suit their scheduling needs. The default view is set to Month, providing an overview of all events."
+    },
+    {
+        "question": "What types of assignments are represented in the calendar and how can they be identified?",
+        "answer": "Assignments in the calendar are shown with icons next to their titles, which indicate the type: Discussion, Assignment, Quiz, or Events."
+    },
+    {
+        "question": "How can a student add a personal reminder to their calendar for a specific event?",
+        "answer": "A student can add a personal reminder by clicking the Calendar link in Global Navigation, selecting any date on the calendar, or using the Add icon to quickly find and add an event."
+    },
+    {
+        "question": "What happens when an assignment is submitted regarding its visibility on the calendar?",
+        "answer": "Once an assignment is submitted, it will be crossed out on the calendar, indicating that it has been completed; however, graded assignments without a submission will not be crossed out."
+    },
+    {
+        "question": "How are the calendar items visually organized for better clarity and accessibility?",
+        "answer": "Calendar items are color-coded to correspond with different courses or calendars in the sidebar, facilitating easier identification of assignments and events."
+    },
+    {
+        "question": "What steps should you follow to create an event in the calendar?",
+        "answer": "To create an event in the calendar, you should enter a title for the event, choose a date, set the start and end times, and enter a location if required. Additionally, you can add details using the More Options button and then submit the event."
+    }
+]

@@ -1,0 +1,59 @@
+
+fetch_announcement_task:
+  description: |
+    **INPUTS**  
+      User Query: '{user_query}'
+      Metadata: '{metadata}'
+      User Email: '{instructor_email}'
+
+    User Query holds the user input, 
+    Metadata holds the last announcement ID discussed and last sub_route taken,
+    User Email holds the email id of user
+
+    Look for a announcement ID in the user query or in the metadata.
+    The format of announcement ID is YYYYMMDDHHMMSS:DDDD (14 digits, a colon, then the 4 digit instructor's ID).
+
+    - If you were able to find announcement ID then:
+      call fetch_announcement_by_id tool using payload: {"announcement_id": announcement_id}
+      This will get you the details of the specific announcement
+
+    - If you were not able to find announcement ID then:  
+      call fetch_all_announcements_for_instructor tool using payload: {"poster_email": instructor_email}
+      This will get you the details of all announcements created by the instructor
+
+  expected_output: |
+    A JSON object with the following fields:
+    {
+      "announcement_id": This should have the announcement ID if found in user query or metadata,
+      "announcement_data": This should have the announcement details returned from tool call
+    }
+  agent: announcement_detail_data_fetcher
+
+beautify_announcement_response_task:
+  description: |
+    **INPUTS**
+      User Query: '{user_query}'
+      announcement_id: Announcement id from previous task
+      announcement_data: Announcement data from previous task
+
+    Look for a announcement ID in the user query.
+    The format of announcement ID is YYYYMMDDHHMMSS:DDDD (14 digits, a colon, then the 4 digit instructor's ID).
+
+    - If you were able to find announcement ID in user's input then:
+      Your task will be to formulate a user friendly answer showcasing the details of announcement from the announcement data as a section.
+
+    - If you were not able to find support ticket ID in user's input:
+      Your task will be to formulate a user friendly response with all announcements from the announcement data as a separate sections.
+
+  expected_output: |
+    A JSON object with the following two fields -
+    {
+      announcement_id: announcement_id,
+      response: Formulate your response as follows:
+      - Start by giving a brief intro based on user query
+      - Then provide each Announcement Data as a section. The header of the section should be Announcement 1, 2, 3 and so on.
+      - Make sure to provide the title, content, event_date for each announcement.
+      - Then conclude by asking user if they want to update any of the aforementioned announcement(s).
+    }
+
+  agent: announcement_detail_beautifier

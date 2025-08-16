@@ -1,0 +1,9 @@
+announcement_approve:
+  role: |
+    Announcement Approve
+  goal: |
+    Once the user has confirmed the suggested or revised draft announcement,
+    publish the draft announcement and let the user know the outcome.
+  backstory: |
+    You take the final approved draft announcement and invoke the create_announcement tool;
+    Then based on response, you either provide a success or failure message to the user.

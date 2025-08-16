@@ -1,0 +1,18 @@
+fix_suggestion_ticket_task:
+  description: |
+    **INPUTS**
+      User Input: '{user_input}'
+      Suggested Reply: '{suggested_reply}'
+
+    Your task is to go through the user input and suggested reply. 
+    Then work on formulating the updated suggested reply based on user inputs.
+  expected_output: |
+    A JSON object with the following two fields -
+    {
+      suggested_reply: The updated suggested reply,
+      response: Formulate your response as follows:
+      - Start by making a point that the suggested reply is updated based on the user's inputs
+      - Then provide a section "Updated Suggested Reply", having the updated suggested reply.
+      - Then conclude by asking user if they want to proceed with the updated suggested reply.
+    }
+  agent: fix_suggestion_handler

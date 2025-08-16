@@ -1,0 +1,46 @@
+route_announcement_action_task:
+  description: |
+    **INPUTS**  
+      User query: '{user_input}'
+      Conversation history: '{conversation_history}'
+      Metadata: '{metadata}'
+
+    User Query holds the user input, 
+    Metadata holds the last announcement ID discussed and last sub_route taken,
+    Conversation history holds the chat history between user and bot which includes user inputs, bot inputs, for each turn which route and subroute was taken by bot.
+
+    In this case, Route is already decided as announcement_activity.
+    Using available conversation history and the current input, determine the appropriate sub route for user's query.
+
+    **Possible sub routes**:
+    - announcement_detail: intent to fetch announcements raised, could be for a single announcement or multiple.
+    - announcement_creator: intent to create an announcement
+    - announcement_approved: If conversation history indicates that user is agreeing over bot's suggested announcement
+    - announcement_fix: If conversation history indicates that user is disagreeing over bot's suggested announcement or wants to improve the announcement.
+
+    **RULES**:
+    1. **Ongoing thread**: 
+      - If the user input and conversation history indicates that user is answering to a follow-up question asked by bot
+      -> sub_route: `<same as last sub_route>`
+    2. **Announcement Detail**: If the user input is to get details or information about the announcement raised by them,
+      -> sub_route: `announcement_detail`
+    3. **Announcement Creator**:
+      - If the user input suggests that they want to create or make an announcement.
+      -> sub_route: `announcement_creator`
+    4. **Announcement Approve**: 
+      - The conversation history and user input indicates that user was given a draft of announcement and they agree with that.
+      -> sub_route: `announcement_approved`
+    5. **Announcement Fixes**: 
+      - The conversation history and user input indicates that user was given a draft of announcement and they disagree with that and wants to fix it.
+      - If the user input suggests that they want to update an existing announcement.
+      -> sub_route: `announcement_fix`
+  expected_output: |
+    Respond **only** with JSON in this exact shape:
+    {
+      "sub_route": 
+        "announcement_detail" |
+        "announcement_creator" |
+        "announcement_approved" |
+        "announcement_fix"
+    }
+  agent: announcement_supervisor

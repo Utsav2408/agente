@@ -1,0 +1,56 @@
+
+extract_support_id_task:
+  description: |
+    **INPUTS** 
+      User Input: '{user_query}'
+      Last Support Ticket Id discussed: '{last_support_ticket_id}'
+
+    Your task is to find the support ticket ID in the user input.
+    The format of support ticket ID is YYYYMMDDHHMMSS:DDDD (14 digits, a colon, then the 4 digit student's ID).
+
+    - If you were not able to find the support ticket ID in User Input, then check last support ticket ID.
+    - If last support ticket ID is also empty, then return empty string.
+
+  expected_output: |
+    A JSON object with the following fields:
+    {
+      "support_ticket_id": The support ticket ID found or empty
+    }
+  agent: resolve_ticket_support_id_fetcher
+
+extract_suggested_reply_task:
+  description: |
+    **INPUTS** 
+    Support Ticket ID: {support_ticket_id}
+
+    Your task is to call 'get_support_ticket_suggestion_request_assignee' tool using payload: {"support_ticket_id": support_ticket_id}
+    Then return the details found on the ticket and its suggested response.
+  expected_output: |
+    A JSON object with the following fields:
+    {
+      "support_ticket_id": support ticket ID,
+      "tool_response": The ticket details along with suggested reply received from tool call
+    }
+  agent: resolve_ticket_data_fetcher
+
+
+beautify_suggested_reply_task:
+  description: |
+    **INPUTS**  
+      Support Ticket ID: Support ticket ID from previous task
+      Tool Response: Tool Response from previous task
+
+    Your task is to grab "support_content" and "suggested_reply" from tool response.
+
+  expected_output: |
+    A JSON object with the following three fields:
+    {
+      "support_ticket_id": This should contain the support ticket ID,
+      "suggested_reply": This should contain the suggested_reply from tool response,
+      "response": Formulate your response as follows:
+      - Start by giving an intro that you are suggesting reply for the support ticket ID
+      - Then provide a section "Support Issue", having the support_content from tool response
+      - Then provide a section "Suggested Reply", having the suggested_reply from tool response
+      - Then conclude by asking user if they want to proceed with the suggested reply.
+    }
+  agent: resolve_ticket_beautifier

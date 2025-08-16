@@ -1,0 +1,57 @@
+extract_data_task:
+  description: |
+    **INPUTS** 
+      User Input: '{user_query}'
+      Available Subjects: '{available_subjects}'
+      Metadata:
+      - Exam: '{exam}'
+      - Class: '{class}'
+      - Subject: '{subject}'
+
+    Your task is to use given user input and given metadata to determine the values for the following necessary parameters:
+    1. exam: The exam for which answer keys needs to be prepared
+    2. class: The class who took the exam for which answer keys needs to be prepared
+    3. subject: The subject for which the class gave the exam
+
+    If any of the necessary parameters are not available either in user input or metadata, send back a follow up question to the user asking for them.
+    You must adhere to the following guidelines while determining the values:
+    - exam: Valid values are "class_test", "mid_term", or "final_term". Map informal terms (e.g., "mid sem", "surprise test", "finals") to one of these.
+    - class: This will have values like 10, 7, etc.
+    - subject: Must be one of the available subjects or check for informal terms that maps to the available subjects.
+    
+  expected_output: |
+    A JSON object with the following four fields:
+    {
+      "answer_key_exam": This should have the 'exam' value either from user input or metadata as per the guidelines
+      "answer_key_class": This should have the 'class' value either from user input or metadata as per the guidelines
+      "answer_key_subject": This should have the 'subject' value either from user input or metadata as per the guidelines
+      "response": This should have the user friendly question asking about the necessary parameter which are not available. If all necessary parameters are present in user input or metadata then send back empty string.
+    }
+  agent: answer_key_detail_data_fetcher
+
+
+fetch_answer_key_task:
+  description: |
+    **INPUTS**  
+      User Query: '{user_query}'
+      Exam: Take answer_key_exam from previous task
+      Class: Take answer_key_class from previous task
+      Subject: Take answer_key_subject from previous task
+
+    Your task is to make the fetch_answer_keys tool call with the following payload:
+    {
+      "exam_type": The exam mentioned in input,
+      "grade": The class mentioned in input,
+      "course_name": The subject mentioned in input
+    }
+    Then return the response received.
+
+  expected_output: |
+    A JSON object with the following fields:
+    {
+      "answer_key_exam": The answer_key_exam from previous task
+      "answer_key_class": The answer_key_class from previous task
+      "answer_key_subject": The answer_key_subject from previous task
+      "generated_answer_key_list": This should have the response from the fetch_answer_keys tool call
+    }
+  agent: answer_key_detail_fetcher

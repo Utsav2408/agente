@@ -1,0 +1,44 @@
+fix_answer_key_task:
+  # description: |
+  #   **INPUTS**
+  #     User Input: '{user_input}'
+  #     Generated Answer Key: '{generated_answer_key}'
+  #     Generated Answer Key List: '{generated_answer_key_list}'
+
+  #   The only difference between Generated Answer Key List and Generated Answer Key is that the later one is an actual list having items of the following pattern:
+  #   {
+  #     "question": The question,
+  #     "total_mark": The total marks for the question,
+  #     "answer": The answer key for the question
+  #   }
+
+  #   Your task is to go through the user input and Generated Answer Key.
+  #   Based on user inputs, make the necessary adjustments to the generated answer key. 
+  #   Make sure to add the fix only the required part and keep the rest untouched.
+
+  #   Next, update the Generated Answer Key list accordingly.
+  description: |
+    **INPUTS**
+      User Input: '{user_input}'
+      Generated Answer: '{answer}'
+      Question: '{question}'
+      Total Marks: '{marks}'
+
+    Your task is to update the generated answer based on user inputs.
+    For your information, Question is given for which answer was generated and Total Marks for the Question.
+  expected_output: |
+    A JSON object with the following two fields -
+    {
+      updated_answer: The updated generated answer based on user inputs 
+    }
+  # expected_output: |
+  #   A JSON object with the following two fields -
+  #   {
+  #     generated_answer_key: The updated generated_answer_key based on user inputs
+  #     generated_answer_key_list: The updated generated_answer_key_list based on user inputs.
+  #     response: Formulate your response as follows:
+  #     - Start by making a point that the generated answer keys are updated based on the user's inputs
+  #     - Then provide a section "Updated Generated Answer Keys" and provide the fixed generated answer key under it. Make sure it is clear and well formatted.
+  #     - Then conclude by asking instructor if they want to proceed with the updated answer keys.
+  #   }
+  agent: fix_answer_key_handler

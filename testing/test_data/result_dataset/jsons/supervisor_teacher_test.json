@@ -1,0 +1,102 @@
+[
+  {
+    "question": "Could you give me the latest update on the ticket I raised for the smart board issue in Grade 8?",
+    "route": "ticket_activity",
+    "predicted_route": "ticket_activity"
+  },
+  {
+    "question": "Please close the ticket regarding the lab projector — the issue has been fixed.",
+    "route": "ticket_activity",
+    "predicted_route": "ticket_activity"
+  },
+  {
+    "question": "How do I open a new ticket for the library’s network outage?",
+    "route": "ticket_activity",
+    "predicted_route": "ticket_activity"
+  },
+  {
+    "question": "I need to check the current status of the ticket about the broken classroom door.",
+    "route": "ticket_activity",
+    "predicted_route": "ticket_activity"
+  },
+  {
+    "question": "Can you re-evaluate John’s essay? I believe his argument was stronger than the initial grade suggests.",
+    "route": "evaluation_activity",
+    "predicted_route": "evaluation_activity"
+  },
+  {
+    "question": "I have finished marking the Grade 10 history papers — can we start the review process now?",
+    "route": "evaluation_activity",
+    "predicted_route": "evaluation_activity"
+  },
+  {
+    "question": "How should I enter the midterm scores for the math exam into the system?",
+    "route": "evaluation_activity",
+    "predicted_route": "evaluation_activity"
+  },
+  {
+    "question": "I’d like to start reviewing the science answer sheets for Grade 7 now.",
+    "route": "evaluation_activity",
+    "predicted_route": "evaluation_activity"
+  },
+  {
+    "question": "The answer key I shared for the chemistry quiz needs a correction for question 8.",
+    "route": "answer_key_generation_activity",
+    "predicted_route": "answer_key_generation_activity"
+  },
+  {
+    "question": "Can you add the missing diagram to the answer key for the biology test?",
+    "route": "answer_key_generation_activity",
+    "predicted_route": "answer_key_generation_activity"
+  },
+  {
+    "question": "I need help creating an answer key for the upcoming Grade 9 algebra test.",
+    "route": "answer_key_generation_activity",
+    "predicted_route": "answer_key_generation_activity"
+  },
+  {
+    "question": "Could you prepare an answer key for the geography quiz scheduled next week?",
+    "route": "answer_key_generation_activity",
+    "predicted_route": "answer_key_generation_activity"
+  },
+  {
+    "question": "Please post the corrected announcement about the parent–teacher meeting time.",
+    "route": "announcement_activity",
+    "predicted_route": "announcement_activity"
+  },
+  {
+    "question": "The announcement for the science fair needs to include the new submission deadline.",
+    "route": "announcement_activity",
+    "predicted_route": "announcement_activity"
+  },
+  {
+    "question": "Can you draft an announcement for the Grade 6 field trip next month?",
+    "route": "announcement_activity",
+    "predicted_route": "announcement_activity"
+  },
+  {
+    "question": "I’d like to send out an announcement to all students about the midterm exam schedule.",
+    "route": "announcement_activity",
+    "predicted_route": "announcement_activity"
+  },
+  {
+    "question": "Could you resolve the open ticket about the missing lab equipment now that it’s been returned?",
+    "route": "ticket_activity",
+    "predicted_route": "ticket_activity"
+  },
+  {
+    "question": "I want to check the evaluation results for the English comprehension test we conducted yesterday.",
+    "route": "evaluation_activity",
+    "predicted_route": "evaluation_activity"
+  },
+  {
+    "question": "The answer key for the history exam needs a better explanation for question 12.",
+    "route": "answer_key_generation_activity",
+    "predicted_route": "answer_key_generation_activity"
+  },
+  {
+    "question": "Can you share an announcement with Grade 12 about the extra revision session this Friday?",
+    "route": "announcement_activity",
+    "predicted_route": "announcement_activity"
+  }
+]

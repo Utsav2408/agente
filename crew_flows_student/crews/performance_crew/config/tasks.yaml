@@ -1,0 +1,83 @@
+identify_all_variables:
+  description: |
+    The student said: {student_query}
+    Student ID: {student_id}
+    grade of student: {grade}
+    allowed courses for the student: {allowed_courses}
+    conversation history: {conversation_history}
+
+    Identify the tool calls that are required to answer the student. 
+    Then check if all the parameters required for those tool calls are already available from conversation history or student query.
+
+    Listing down some of the variables for whom you have to take special care -
+      1. course_name: Must be one of the allowed courses or check for informal terms that maps to the allowed courses. Verify if the student's query or conversation history specifies it.
+      2. exam_type: Valid values are "class_test", "mid_term", or "final_term". Map informal terms (e.g., "mid sem", "surprise test", "finals") to one of these. Verify if the student's query or conversation history specifies it.
+
+    Based on your analysis, create a list of suggested tool calls, missing parameters to make those tool calls and parameters found to make those tool calls.
+
+  expected_output: |
+    A JSON object with fields:
+    - found_parameters: the list of required parameters with  for which value was found to make tool call
+    - missing_parameters: the list of required parameters for which value was not found to make tool call
+    - suggested_tool_call: the list of tool calls suggested
+    - found_parameters_with_values: A list of key value pairs, where key is the parameter found and value is its respective value
+
+  agent: student_performance_guider
+
+fetch_performance_reports:
+  description: |
+    Parameters with Values: List of found_parameters_with_values from previous task
+    Parameters: List of found_parameters from previous task
+    Suggested Tool Calls: List of tool calls suggested by previous task
+    Conversation History: {conversation_history}
+
+    Based on the tool calls suggested and conversation history so far, analyse what user actually needs.
+    Then based on your analysis, pick the tools that looks relevant, perform those and return the data received.
+
+  expected_output: |
+    A JSON object with fields:
+    - done_tool_call: a boolean (true if all tool calls are done, even if the tool call returned an error)
+    - parameters: An object containing required parameters with values as key:value pair used during tool call
+    - information: raw info received from tool calls
+
+  agent: student_performance_guider
+
+construct_follow_up_question:
+  description: |
+    Found Parameters: List of found_parameters from previous_task
+    Suggested Tool Calls: List of suggested_tool_calls from previous task
+
+    Missing Parameters: List of missing_parameters from previous_task
+    allowed courses for the student: {allowed_courses}
+    Valid values are exam type: "class_test", "mid_term", or "final_term"
+
+    Based on the missing parameters list, generate a question to be asked to the student to fetch the details.
+  expected_output: |
+    A JSON object with fields:
+    - response: A curated question detailing the required parameters which are missing.
+    - found_parameters: The list of found_parameters from previous_task.
+    - suggested_tool_call: The list of suggested_tool_calls from previous task
+    - has_all_fields: a boolean (true if no missing parameters are found)    
+
+  agent: student_answer_builder
+
+construct_answer:
+  description: |
+    Conversation History: {conversation_history}
+    Parameters: List of parameters found by previous task
+    Tool Call Information: Information received from tool calls in previous task
+
+    Note - Grade in parameters signifies class and not actual marks.
+
+    Based on the conversation history and information received, generate a clear, coherent and motivating response.
+      1. Begin with a brief, friendly greeting referencing student's need from conversation history.
+      2. Provide a detailed go through of the Tool Call Information received and use bullet points if required.
+         If Tool Call Information, contains details about exams, then make sure to provide total marks, individual marks, and feedback if provided any.
+      3. Conclude with 2 suggestions each one liner on what aspects to improve on.
+    Maintain a warm, supportive tone while remaining factual and concise.
+
+  expected_output: |
+    A JSON object with the following fields:
+    - response: A brief motivating, personalized feedback message
+
+  agent: student_answer_builder

@@ -1,0 +1,23 @@
+approve_suggestion_and_resolve_ticket_task:
+  description: |
+    **INPUTS**
+      Support Ticket ID: '{support_ticket_id}'  
+      Support Ticket Reply: '{support_ticket_reply}'
+
+    Your task is to call resolve_support_ticket_tool with the following payload:
+    {
+      "support_ticket_id": Support Ticket ID got as input
+      "assignee_reply": Support Ticket Reply got as input
+    }
+
+    - If the tool call is successful, then return a success message for the user.
+    - If the tool call failed, then return a failure message for the user.
+  expected_output: |
+    A JSON object with the following fields -
+    {
+      response: A user-friendly response indicating a success or failure of their ticket resolution task
+      support_ticket_id: support ticket id  
+      resolved: a boolean value, true if sucessfully resolved the ticket else false  
+    }
+  agent: approve_suggestion_handler
+

@@ -1,0 +1,41 @@
+route_answer_key_task:
+  description: |
+    **INPUTS**  
+      User query: '{user_input}'  
+      Conversation history: '{conversation_history}'
+      Metadata: '{metadata}'
+
+    User Query holds the user input, 
+    Metadata holds the last sub_route taken,
+    Conversation history holds the chat history between user and bot which includes user inputs, bot inputs, for each turn which route and subroute was taken by bot.
+
+    In this case, Route is already decided as answer_key_activity.
+    Using available conversation history, metadata and the current input, determine the appropriate sub route for user's query.
+
+    **Possible sub routes**:
+    - answer_key_details: intent to fetch the answer keys generated for a particular subject's exam
+    - approve_answer_key: If conversation history indicates that user is agreeing over bot's generated answer key for a particular subject's exam
+    - fix_answer_key: If conversation history indicates that user is disagreeing over bot's generated answer key for a particular subject's exam or wants to improve that generated answer key
+
+    **RULES**:
+    1. **Ongoing thread**: If the user input and conversation history indicates that user is answering to a follow-up question asked by bot
+      -> sub_route: `<same as last sub_route>`
+    2. **Answer Key Details**: If the user input suggests that they want to work on generating the answer keys for a particular subject's exam,
+      -> sub_route: `answer_key_details`
+    3. **Approve Answer Key**:
+      - The conversation history and user input indicates that user was given generated answer keys for a particular subject's exam and they agree with that.
+      - The conversation history and user input indicates that user was given rephrased generated answer keys for a particular subject's exam, after there disagreement with earlier generated answer keys and they agree with that.
+      -> sub_route: `approve_answer_key`
+    4. **Fix Answer Key**: 
+      - The conversation history and user input indicates that user was given generated answer keys for a particular subject's exam and they disagree with that and wants to fix it.
+      - The conversation history and user input suggests that the user input is an answer to the follow up question by bot that asks them to elaborate on there disagreement with the generated answer key.
+      -> sub_route: `fix_answer_key`
+  expected_output: |
+    Respond **only** with JSON in this exact shape:
+    {
+      "sub_route": 
+        "answer_key_details" |
+        "approve_answer_key" |
+        "fix_answer_key"
+    }
+  agent: handle_answer_key_supervisor

@@ -1,0 +1,27 @@
+fix_announcement_task:
+  description: |
+    **INPUTS**
+      User Input: '{user_input}'
+
+      Metadata:
+      Announcement Class: '{announcement_class}'
+      Announcement Summary: '{announcement_summary}'
+      Announcement Event Date: '{announcement_event_date}'
+      Announcement Title: '{announcement_title}'
+      Draft Announcement: '{draft_announcement}'
+
+    Your task is to go through the user input, Draft Announcement, Announcement Class, Announcement Summary, Announcement Event Date and Announcement Title.
+    Then based on user input, work on updating either of them as needed.
+
+    Note if there are any changes regarding announcement_event_date then, make sure to call resolve_date_tool using {"query": user_query}. 
+    This will send back date in the correct format.
+  expected_output: |
+    A JSON object with the following two fields -
+    {
+      "announcement_class": If announcement_class value is not updated, then pass in the existing value, else share the updated value
+      "announcement_summary": If announcement_summary value is not updated, then pass in the existing value, else share the updated value
+      "announcement_event_date": If announcement_event_date is not updated, then pass in the existing value, else share the updated value
+      "announcement_title": If announcement_title is not updated, then pass in the existing value, else share the updated value
+      draft_announcement: The updated draft announcement
+    }
+  agent: announcement_fix

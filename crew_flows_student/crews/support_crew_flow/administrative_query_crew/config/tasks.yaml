@@ -1,0 +1,42 @@
+query_rewritter_task:
+  description: |
+    Student's Query: '{user_input}'
+
+    Your task is to generate a list of 3 to 4 questions that mimics or could be an alternative way to ask the same question which student has.
+  expected_output: |
+    A JSON object with the following field:
+    {
+      "query_list": A list of 3 to 4 questions generated that mimics student query
+    }
+  agent: query_rewritter
+
+retriever_agent_task:
+  description: |
+    List of Questions: Collect the list of questions from previous task.
+
+    Your task is to perform fetch_answer_administrative_tool tool call strictly with the following payload:
+    {
+      "query_list": The list of questions collected from previous task
+    }
+
+    And return the data that you receive from the tool call.
+  expected_output: |
+    A JSON object with the following field:
+    {
+      "answer_list_response": The list of answers that you get from the tool call
+    }
+  agent: retriever_agent
+
+answer_user_query_task:
+  description: |
+    Student's Query: '{user_input}'
+    List of Answers: Collect the list of answers from previous task
+
+    Your task is to craft a user friendly response based on the list of probable answers received and the student's query itself.
+    Make sure that your answer is concise, clear and coherent.
+  expected_output: |
+    A JSON object with the following field:
+    {
+      "response": A well-written support answer that resolves the student's query or guides them effectively.
+    }
+  agent: answer_agent

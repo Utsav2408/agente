@@ -1,0 +1,28 @@
+evaluate_student_answer_task:
+  description: |
+    **INPUTS**
+      Question: {question}
+      Student Answer: {student_answer}
+      Answer Key: {answer_key}
+      Total Marks: {total_marks}
+
+    Question includes the question being discussed,
+    Student Answer includes the answer given by student for the question,
+    Answer Key includes the answer which is mentioned by the instructor,
+    Total marks includes the total marks alloted to the question for the exam
+
+    Your task is to evaluate the student's answer based on the given question and its answer key.
+    The parameters that you must look into are -
+    1. Clarity - How much clear and meaningful the student's answer is based on given question
+    2. Correctness - How much close or match does the student's answer is having with the answer key provided for the question
+
+    Post your analysis, you must determine how much marks should the student be alloted for his answer, 
+    and a short and concise feedback on his performance.
+  expected_output: |
+    A JSON object with the following fields -
+    {
+      marks: The marks alloted by you to student for his answer
+      feedback: The feedback given by you to the student for his performance
+    }
+  agent: evaluate_student_answer_handler
+

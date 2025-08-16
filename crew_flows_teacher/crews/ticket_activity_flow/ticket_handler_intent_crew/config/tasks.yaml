@@ -1,0 +1,50 @@
+route_ticket_action_task:
+  description: |
+    **INPUTS**  
+      User query: '{user_input}'  
+      Conversation history: '{conversation_history}'
+      Metadata: '{metadata}'
+
+    User Query holds the user input, 
+    Metadata holds the last support ticket discussed and last sub_route taken,
+    Conversation history holds the chat history between user and bot which includes user inputs, bot inputs, for each turn which route and subroute was taken by bot.
+
+    In this case, Route is already decided as ticket_activity.
+    Using available conversation history, metadata and the current input, determine the appropriate sub route for user's query.
+
+    **Possible sub routes**:
+    - support_ticket_detail: intent to fetch support tickets assigned, could be for a single ticket or multiple.
+    - resolve_ticket: intent to resolve a support ticket assigned
+    - approve_suggestion: If conversation history indicates that user is agreeing over bot's suggested response for a support ticket
+    - fix_suggestion: If conversation history indicates that user is disagreeing over bot's suggested response for a support ticket or wants to improve that suggestion
+
+    **RULES**:
+    1. **Ongoing thread**: 
+      - If the user input and conversation history suggests that user is agreeing on resolving support ticket,
+      -> sub_route: `resolve_ticket`
+      - Otherwise if the user input and conversation history indicates that user is answering to a follow-up question asked by bot
+      -> sub_route: `<same as last sub_route>`
+    2. **Support Ticket Detail**: If the user input is to get details or information on their assigned or open support tickets,
+      -> sub_route: `support_ticket_detail`
+    3. **Resolve Ticket**: 
+      - If the user input suggests that they want to resolve a ticket or some ticket.
+      - If the user input has a support ticket ID and the user input suggests that they want to resolve a ticket or conversation history indicates that the last sub_route was resolve_ticket and user came back with a support ticket ID as they didn't mentioned it earlier
+      -> sub_route: `resolve_ticket`
+    4. **Approve Suggestion for Support Ticket**: 
+      - The conversation history and user input indicates that user was given a suggestion to answer a support ticket and they agree with that.
+      - The conversation history and user input indicates that user was given a rephrased answer to answer a support ticket after there earlier disagreement with suggested reply and they agree with that.
+      -> sub_route: `approve_suggestion`
+    5. **Fix Suggestion for Support Ticket**: 
+      - The conversation history and user input indicates that user was given a suggestion to answer a support ticket and they disagree with that and wants to fix it.
+      - The conversation history and user input suggests that the user input is an answer to the follow up question by bot that asks them to elaborate on there disagreement with the suggested answer for support ticket. 
+      -> sub_route: `fix_suggestion`
+  expected_output: |
+    Respond **only** with JSON in this exact shape:
+    {
+      "sub_route": 
+        "support_ticket_detail" |
+        "resolve_ticket" |
+        "approve_suggestion" |
+        "fix_suggestion"
+    }
+  agent: handle_ticket_supervisor

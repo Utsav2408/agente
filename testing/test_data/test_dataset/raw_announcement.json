@@ -1,0 +1,82 @@
+[
+  {
+    "user_input": "announcement_class=CS101; announcement_summary=Quiz 2 moved to next week due to campus event; announcement_event_date=2025-08-21",
+    "reference": "Title: Quiz 2 Moved to Next Week\nClass: CS101\nBody: Heads up! Quiz 2 has been moved to next week due to the campus event. Please adjust your plans accordingly.\nEvent Date: 2025-08-21"
+  },
+  {
+    "user_input": "announcement_class=Math 204; announcement_summary=Problem Set 3 deadline extended; announcement_event_date=2025-09-03",
+    "reference": "Title: Problem Set 3 Deadline Extended\nClass: Math 204\nBody: Good news! The deadline for Problem Set 3 has been extended. Use the extra time to polish your work.\nEvent Date: 2025-09-03"
+  },
+  {
+    "user_input": "announcement_class=Biology 110; announcement_summary=Guest lecture by Dr. Rao on urban ecology; announcement_event_date=2025-08-28",
+    "reference": "Title: Guest Lecture: Dr. Rao on Urban Ecology\nClass: Biology 110\nBody: We will host a guest lecture by Dr. Rao on urban ecology. Come ready to learn and ask questions.\nEvent Date: 2025-08-28"
+  },
+  {
+    "user_input": "announcement_class=HIST300; announcement_summary=Midterm review session scheduled; announcement_event_date=2025-09-10",
+    "reference": "Title: Midterm Review Session Scheduled\nClass: HIST300\nBody: A midterm review session has been scheduled to help you prepare. Bring your questions.\nEvent Date: 2025-09-10"
+  },
+  {
+    "user_input": "announcement_class=CHEM 1A; announcement_summary=Lab section B room change to Lab 204; announcement_event_date=2025-08-20",
+    "reference": "Title: Lab Section B Room Change\nClass: CHEM 1A\nBody: Lab Section B will meet in Lab 204. Please go directly to the new room.\nEvent Date: 2025-08-20"
+  },
+  {
+    "user_input": "announcement_class=ENGR 210; announcement_summary=Project kickoff meeting required for all teams; announcement_event_date=2025-08-25",
+    "reference": "Title: Project Kickoff Meeting for All Teams\nClass: ENGR 210\nBody: A project kickoff meeting is required for all teams. Make sure at least one representative from each team attends.\nEvent Date: 2025-08-25"
+  },
+  {
+    "user_input": "announcement_class=PSY 102; announcement_summary=Reading quiz added for Chapter 4; announcement_event_date=2025-08-22",
+    "reference": "Title: Reading Quiz for Chapter 4\nClass: PSY 102\nBody: A reading quiz has been added for Chapter 4. Please complete the reading beforehand.\nEvent Date: 2025-08-22"
+  },
+  {
+    "user_input": "announcement_class=STAT 250; announcement_summary=Office hours extended by 30 minutes; announcement_event_date=2025-08-19",
+    "reference": "Title: Office Hours Extended\nClass: STAT 250\nBody: Office hours are extended by 30 minutes. Feel free to stop by if you need help.\nEvent Date: 2025-08-19"
+  },
+  {
+    "user_input": "announcement_class=ART 115; announcement_summary=Studio critique rescheduled; announcement_event_date=2025-09-02",
+    "reference": "Title: Studio Critique Rescheduled\nClass: ART 115\nBody: The studio critique has been rescheduled. Please update your plans accordingly.\nEvent Date: 2025-09-02"
+  },
+  {
+    "user_input": "announcement_class=ECON 101; announcement_summary=Assignment 2 posted on the portal; announcement_event_date=2025-08-18",
+    "reference": "Title: Assignment 2 Posted\nClass: ECON 101\nBody: Assignment 2 is posted on the portal. Review the instructions and start early.\nEvent Date: 2025-08-18"
+  },
+  {
+    "user_input": "announcement_class=PHYS 140; announcement_summary=Exam 1 formula sheet permitted; announcement_event_date=2025-09-05",
+    "reference": "Title: Exam 1 Formula Sheet Permitted\nClass: PHYS 140\nBody: A formula sheet will be permitted for Exam 1. Prepare your sheet within the allowed guidelines.\nEvent Date: 2025-09-05"
+  },
+  {
+    "user_input": "announcement_class=CS 330; announcement_summary=Hackathon info session; announcement_event_date=2025-08-27",
+    "reference": "Title: Hackathon Info Session\nClass: CS 330\nBody: There will be an info session about the hackathon. Join to learn how to participate.\nEvent Date: 2025-08-27"
+  },
+  {
+    "user_input": "announcement_class=SPAN 202; announcement_summary=Oral presentations begin; announcement_event_date=2025-09-09",
+    "reference": "Title: Oral Presentations Begin\nClass: SPAN 202\nBody: Oral presentations will begin. Be ready to present on your assigned topic.\nEvent Date: 2025-09-09"
+  },
+  {
+    "user_input": "announcement_class=GEOL 150; announcement_summary=Field trip waiver forms due; announcement_event_date=2025-08-23",
+    "reference": "Title: Field Trip Waiver Forms Due\nClass: GEOL 150\nBody: Field trip waiver forms are due. Submit them on time to participate.\nEvent Date: 2025-08-23"
+  },
+  {
+    "user_input": "announcement_class=PHIL 220; announcement_summary=Discussion moved online for this week; announcement_event_date=2025-08-26",
+    "reference": "Title: Discussion Moved Online This Week\nClass: PHIL 220\nBody: Discussion will be held online for this week. Check your course platform for details.\nEvent Date: 2025-08-26"
+  },
+  {
+    "user_input": "announcement_class=Music 101; announcement_summary=Practice quiz available for ear training; announcement_event_date=2025-08-24",
+    "reference": "Title: Practice Quiz for Ear Training\nClass: Music 101\nBody: A practice quiz is available for ear training. Use it to prepare and self-check.\nEvent Date: 2025-08-24"
+  },
+  {
+    "user_input": "announcement_class=Anthro 305; announcement_summary=Makeup session for missed seminar; announcement_event_date=2025-09-01",
+    "reference": "Title: Makeup Session for Missed Seminar\nClass: Anthro 305\nBody: There will be a makeup session for the missed seminar. Attend if you were affected.\nEvent Date: 2025-09-01"
+  },
+  {
+    "user_input": "announcement_class=DataSci 201; announcement_summary=Dataset release for Project 1; announcement_event_date=2025-08-20",
+    "reference": "Title: Dataset Release for Project 1\nClass: DataSci 201\nBody: The dataset for Project 1 will be released. Download it and begin your analysis.\nEvent Date: 2025-08-20"
+  },
+  {
+    "user_input": "announcement_class=ENV 122; announcement_summary=Room change to Building C, Room 109; announcement_event_date=2025-08-29",
+    "reference": "Title: Room Change to Building C, Room 109\nClass: ENV 122\nBody: The class will meet in Building C, Room 109. Please head to the updated location.\nEvent Date: 2025-08-29"
+  },
+  {
+    "user_input": "announcement_class=LIT 180; announcement_summary=Poetry slam sharing circle; announcement_event_date=2025-09-06",
+    "reference": "Title: Poetry Slam Sharing Circle\nClass: LIT 180\nBody: We will hold a poetry slam sharing circle. Bring your piece and your voice.\nEvent Date: 2025-09-06"
+  }
+]

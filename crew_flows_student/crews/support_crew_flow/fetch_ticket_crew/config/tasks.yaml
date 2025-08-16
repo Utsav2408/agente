@@ -1,0 +1,70 @@
+identify_support_ticket_id_task:
+  description: |
+    Examine the user's input: '{user_input}'.
+    Determine if it contains a support-ticket ID in the format
+    YYYYMMDDHHMMSS:STUDENT_ID (14 digits, a colon, then the student's ID).
+    **Return JSON only**, matching the schema below—no extra prose.
+
+  expected_output: |
+    A JSON object with two fields:
+    - user_input: the original user_input string  
+    - has_ticket_id: a boolean (true if a ticket ID was found)
+  agent: fetch_support_ticket_agent
+
+fetch_support_ticket_by_id_task:
+  description: |
+    Examine the student's original input: '{user_input}'.
+    Use a regular expression to extract the support-ticket ID in the format
+    YYYYMMDDHHMMSS:STUDENT_ID (14 digits, a colon, then the student's ID).
+
+    After extracting the ID, call the get_support_ticket_by_id tool with payload:
+    {
+      'support_ticket_id': '<extracted support-ticket ID>'
+    }
+
+    - If the tool returns the ticket JSON, return it verbatim.
+    - If the tool raises a 404, respond: 'No ticket found with ID <support_ticket_id>.'
+    - If any other error occurs, respond: 'Sorry, I couldn't fetch that ticket right now.'
+
+  expected_output: |
+    Either the ticket JSON, or the appropriate “not found” / “error” message.
+  agent: fetch_support_ticket_agent
+
+list_support_tickets_by_student_task:
+  description: |
+    The student wants to see all of their support tickets.
+
+    Student ID: '{student_id}'
+
+    Conversation history so far: {conversation_history}
+
+    Your task is to call the get_all_support_ticket_by_student_id tool with payload:
+    {
+      'student_id': Student ID
+    }
+
+    If tickets exist, return the array of tickets as JSON.
+    If no tickets, respond: 'You have no support tickets on record.'
+    If any error occurs, respond: 'Sorry, I couldn't retrieve your tickets right now.'
+
+  expected_output: |
+    Either the array of ticket JSON objects, or the “no tickets” / “error” message.
+  agent: fetch_support_ticket_agent
+
+beautify_support_ticket_answer_task:
+  description: |
+    You have just fetched ticket data (either a single JSON object or an array of objects)
+    and you know the user's original question.
+
+    Now:
+    1. Read the user's request: '{user_input}'
+    2. Read the tickets payload from the prior task.
+    3. Craft a clear, concise, conversational answer that:
+       - Mentions the ticket ID(s), date(s), status, and assignee reply where relevant,
+       - Answers only what the user asked (e.g. “last ticket” vs. “all tickets”).
+    4. If the previous task returned an error message (e.g. “No ticket found…”),
+       simply pass that message through.
+
+  expected_output: |
+    A polished natural-language response to send back to the user.
+  agent: beautifier_agent

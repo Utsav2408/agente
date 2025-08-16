@@ -1,0 +1,21 @@
+{
+  "pdf_path": "/Users/utsavvora/Desktop/Projects/SubjectiveAgent/book/DataMiningBook.pdf",
+  "output_prefix": "DataMiningBook_chap",
+  "chapters": [
+    {
+      "title": "Chapter 1 - Introduction",
+      "start": 4,
+      "end": 17
+    },
+    {
+      "title": "Chapter 2 - Data",
+      "start": 21,
+      "end": 88
+    },
+    {
+      "title": "Chapter 3 - Exploring Data",
+      "start": 98,
+      "end": 141
+    }
+  ]
+}

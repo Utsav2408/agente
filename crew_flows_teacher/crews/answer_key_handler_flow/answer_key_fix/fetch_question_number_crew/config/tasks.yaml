@@ -1,0 +1,18 @@
+extract_question_id_task:
+  description: |
+    **INPUTS** 
+      User Input: '{user_query}'
+
+    Your task is to find the question number in the user input.
+    The format of question number is simple integer, 1, 2, 3, etc.
+
+    The user may also use some abbreviations like Question 1, Q2, Ques3, bring out the number from it and return.
+
+    - If you were not able to find the question number in User Input, then return 0.
+
+  expected_output: |
+    A JSON object with the following fields:
+    {
+      "question_number": The question number which user is talking about
+    }
+  agent: fetch_question_id

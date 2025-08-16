@@ -1,0 +1,24 @@
+approve_answer_key_task:
+  description: |
+    **INPUTS**
+      Exam: {exam}
+      Subject: {subject}
+      Class: {class}
+      
+    Your task is to call answer_key_submit with the following payload:
+    {
+      "exam_type": The exam mentioned in input,
+      "grade": The class mentioned in input,
+      "course_name": The subject mentioned in input
+    }
+
+    - If the tool call is successful, then return a success message for the user.
+    - If the tool call failed, then return a failure message for the user.
+  expected_output: |
+    A JSON object with the following fields -
+    {
+      response: A user-friendly response indicating a success or failure of the answer key submission tool call
+      resolved: a boolean value, true if tool call is success else false
+    }
+  agent: approve_answer_key_handler
+

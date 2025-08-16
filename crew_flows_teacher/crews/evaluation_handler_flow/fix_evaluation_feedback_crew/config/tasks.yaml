@@ -1,0 +1,22 @@
+fix_evaluation_feedback_task:
+  description: |
+    **INPUTS**
+      User Input: '{user_input}'
+      Individual Mark: '{individual_mark}'
+      Similarity Score: '{similarity_score}'
+      Feedback: '{feedback}'
+
+    User Input holds the fix requested by the user,
+    Individual Mark holds the marks alloted to the student for the question based on their answer,
+    Similarity Score holds the score which indicates how much percentage of content of student's answer for the question is similar to the question's answer key,
+    Feedback holds the feedback given to the student for the question based on their answer
+
+    Your task is to understand the user input and then make changes to the necessary field.
+  expected_output: |
+    A JSON object with the following fields -
+    {
+      individual_mark: If made changes to individual_mark, then add the updated one, otherwise keep the initial one given during input
+      similarity_score: If made changes to similarity_score, then add the updated one, otherwise keep the initial one given during input
+      feedback: If made changes to feedback, then add the updated one, otherwise keep the initial one given during input
+    }
+  agent: fix_evaluation_feedback_handler

@@ -1,0 +1,54 @@
+classify_subject_task:
+  description: |
+    The question: "{question}"
+    Available subjects: {available_subjects}
+
+    Your task is to identify the subjects from the given available subjects, that are most relevant to the given question.
+  expected_output: |
+    A JSON object:
+    {
+      "subjects": ["subject1", "subject2", ... subject or subjects associated to question]
+    }
+  
+  agent: subject_classifier
+
+retrieve_info_task:
+  description: |
+    The question: "{question}"
+    Class or grade whose exam has the given question : "{grade}"
+    Classified Subject List: Take subjects from previous task
+
+    Your task is to gather relevant context for the given exam question using "retrieve_context" tool with this structured payload:
+    {
+      "query": the question,
+      "subject_names": classified subject list,
+      "grade": The class or grade whose exam has the given question
+    }
+
+  expected_output: |
+    A JSON object:
+    {
+      "context": The context retrieved using retrieve_context tool call
+    }
+  
+  agent: retriever
+
+generate_final_answer_task:
+  description: |
+    The question: {question}
+    Context: Take context from previous task
+    Marks: {marks}
+    Previous Answer: {previous_answer}
+
+    Your task is to generate a concise and clear answer for the given question. 
+    If previous answer is available then you must improvise that answer.
+
+    Make sure you use the given context to generate or improvise your answer and keep it lengthy or short based on given marks.
+
+  expected_output: |
+    A JSON object:
+    {
+      "response": The answer generated for the given question
+    }
+
+  agent: answer_generator

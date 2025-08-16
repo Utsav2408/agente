@@ -1,0 +1,26 @@
+approve_evaluation_feedback_task:
+  description: |
+    **INPUTS**
+      Student ID: {student_id}
+      Exam: {exam}
+      Subject: {subject}
+      Class: {class}
+      
+    Your task is to call evaluation_feedback_submit tool strictly with the following payload:
+    {
+      "student_id": This should include the Student ID given as input,
+      "exam_type": This should include the Exam given as input,
+      "course_name": This should include the Subject given as input,
+      "grade": This should include the Class given as input
+    }
+
+    - If the tool call is successful, then return a success message for the user.
+    - If the tool call failed, then return a failure message for the user.
+  expected_output: |
+    A JSON object with the following fields -
+    {
+      response: A user-friendly response indicating a success or failure of their evaluation submission task
+      resolved: a boolean value, true if tool call is success else false  
+    }
+  agent: approve_evaluation_feedback_handler
+

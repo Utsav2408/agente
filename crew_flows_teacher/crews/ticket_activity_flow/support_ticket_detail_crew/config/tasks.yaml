@@ -1,0 +1,61 @@
+
+fetch_support_ticket_task:
+  description: |
+    **INPUTS**  
+      User Query: '{user_query}'
+      Metadata: '{metadata}'
+      User Email: '{instructor_email}'
+
+    User Query holds the user input, 
+    Metadata holds the last support ticket discussed and last sub_route taken,
+    User Email holds the email id of user
+
+    Look for a support-ticket ID in the user query or in the metadata.
+    The format of support-ticket ID is YYYYMMDDHHMMSS:DDDD (14 digits, a colon, then the 4 digit student's ID).
+
+    - If you were able to find support ticket ID then:
+      call get_support_ticket_by_id_request_assignee tool using payload: {"support_ticket_id": support_ticket_id}
+      This will get you the details of the specific support ticket ID
+
+    - If you were not able to find support ticket ID then:  
+      call get_all_support_ticket_by_assignee tool using payload: {"assignee": instructor_email}
+      This will get you the details of all support tickets assigned
+
+  expected_output: |
+    A JSON object with the following fields:
+    {
+      "support_ticket_id": This should have the support ticket ID if found in user query or metadata,
+      "support_ticket_data": This should have the support ticket details returned from tool call
+    }
+  agent: support_ticket_detail_data_fetcher
+
+# 3. Beautify the support‐ticket data (list or single)
+beautify_support_ticket_response_task:
+  description: |
+    **INPUTS**
+      User Query: '{user_query}'
+      support_ticket_id: Support ticket id from previous task
+      support_ticket_data: Support ticket data from previous task
+
+    Look for a support-ticket ID in the user query.
+    The format of support-ticket ID is YYYYMMDDHHMMSS:DDDD (14 digits, a colon, then the 4 digit student's ID).
+
+    - If you were able to find support ticket ID in user's input:
+      Check if the support ticket data returned is empty or not. 
+      If empty then it indicates the support ticket was resolved and you must let the user know the same.
+      Otherwise, your task will be to formulate a focussed answer with the issue presented in that support ticket and ask if user wants to resolve the support ticket now.
+    
+    - If you were not able to find support ticket ID in user's input:
+      Check if the support ticket data returned is empty or not. 
+      If empty then it indicates that there are no support tickets assigned or remaining to resolve. In this case, make sure to congratulate them on keeping their plate cleaner.
+      Otherwise, your task will be to formulate a user friendly response with all open ticket IDs and corresponding creation date from the support ticket data retrieved.
+
+    Note - Here the user is Instructor or to whom support tickets are assigned and students are the one who has raised the support tickets.
+  expected_output: |
+    A JSON object with the following fields:
+    {
+      "response": This should have the user friendly response
+      "support_ticket_id": support_ticket_id
+    }
+
+  agent: support_ticket_detail_beautifier

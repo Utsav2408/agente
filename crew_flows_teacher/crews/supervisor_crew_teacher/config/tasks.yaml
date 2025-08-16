@@ -1,0 +1,141 @@
+handle_user_query_task:
+  description: |
+   **INPUTS**:
+   Teacher input: '{user_input}'
+   Conversation history: {conversation_history}
+
+   Teacher Query holds the user input,
+   Conversation history holds the chat history between user and bot which includes user inputs, bot inputs, for each turn which route and subroute was taken by bot.
+
+   Using both the available conversation history and the current input, determine the appropriate route for teacher's input and whether it's a new question or a continuation (`follow_up`).
+
+   **Possible routes**:
+   - ticket_actvity: intent to check, update or resolve support tickets assigned
+   - evaluation_activity: intent to evaluate or check student answers for an exam
+   - answer_key_generation_activity: intent to work on generating answer key or preparing answers for an exam
+   - announcement_activity: intent to create, update or share an announcement for a particular grade or class or entire institution.
+   - out of scope: Route to this, if none of the other routes are relatable.
+
+   **Possible reasons**:
+   - follow_up: If the user is continuing an existing thread, giving back answers on a follow up question or asking a follow up question.
+   - new_query: If the user is starting a new thread, asks a new question which is not related to previous thread.
+
+   **RULES**:
+
+   1. **Ongoing thread**: If the user input and conversation history indicates that user is answering to a follow-up question asked by bot,
+   -> route: `<same as last route>`, reason: `follow_up`
+
+   2. **Ticket Activity**: 
+   - If the user input is to get details or information on their assigned or open support tickets
+   - If the user input suggests that they want to resolve a ticket or some ticket.
+   - If the user input has a support ticket ID and the user input suggests that they want to resolve a ticket
+   - The conversation history and user input indicates that user was given a suggestion to answer a support ticket and they agree with that.
+   - The conversation history and user input indicates that user was given a suggestion to answer a support ticket and they disagree with that and wants to fix it.
+   -> route: `ticket_activity`, reason: `new_query`
+
+   - If the user input has a support ticket ID and conversation history indicates that the last sub_route was resolve_ticket and user came back with a support ticket ID as they didn't mentioned it earlier
+   - The conversation history and user input suggests that the user input is an answer to the follow up question by bot that asks them to elaborate on there disagreement with the suggested answer for support ticket. 
+   -> route: `ticket_activity`, reason: `follow_up`
+
+   3. **Evaluation Activity**: 
+   - If the user input suggests that they want to start evaluating student's answers for an exam
+   -> route: `evaluation_activity`, reason: `new_query`
+
+   - If the user input has exam details and conversation history indicates that the last route was evaluation_activity and user came back with the additional exam details as they didnt mentioned it earlier
+   -> route: `evaluation_activity`, reason: `follow_up`
+
+   4. **Answer Key Generation Activity**:
+   - If the user input suggests that they want to start creating answer keys for a particular exam
+   -> route: `answer_key_generation_activity`, reason: `new_query`
+
+   - If the user input has exam details and conversation history indicates that the last route was answer_key_generation_activity and user came back with the additional exam details as they didnt mentioned it earlier
+   -> route: `answer_key_generation_activity`, reason: `follow_up`
+
+   5. **Announcement Activity**: 
+   - If the user input suggests that they need to create or share an announcement to all the students of a grade or entire institution
+   -> route: `announcement_activity`, reason: `new_query`
+
+   6. **Out of Scope**: Otherwise,
+   - If the input suggests greetings or feedbacks from the teacher, then ensure that you analyze the conversation history and provide a response to the user.
+   - If the input is out of scope, then curate a response stating the same and requesting the teacher to ask questions that are relevant to the routes mentioned above.
+   -> route: `out_of_scope`, reason: `new_query`, response: Based any of the above two conditions
+
+  expected_output: |
+   Respond **only** with JSON in this exact shape:
+   {
+      "route": "ticket_activity" | "evaluation_activity" | "announcement_activity" | "out_of_scope",
+      "reason": "follow_up" | "new_query",
+      "response": If input is out of scope, then this should include your response, otherwise pass an empty string.
+   }
+
+  agent: supervisor
+
+# handle_user_query_task:
+#   description: |
+#    **INPUTS**:
+#    Teacher query: '{user_input}'
+#    Conversation history: {conversation_history}
+
+#    Teacher Query holds the user input,
+#    Conversation history holds the chat history between user and bot which includes user inputs, bot inputs, for each turn which route and subroute was taken by bot.
+
+#    Using both the available conversation history and the current input, determine the appropriate route for teacher's query and whether it's a new question or a continuation (`follow_up`).
+
+#    **Possible routes**:
+#    - ticket_actvity: intent to check, update or resolve support tickets assigned
+#    - evaluation_activity: intent to evaluate or check student answers for an exam
+#    - answer_key_generation_activity: intent to work on generating answer key or preparing answers for an exam
+#    - announcement_activity: intent to create, update or share an announcement for a particular grade or class or entire institution.
+#    - out_of_scope: intent is unrelated to any of the above (e.g., general knowledge, chit-chat, unrelated questions)
+
+#    **Possible reasons**:
+#    - follow_up: If the user is continuing an existing thread, giving back answers on a follow up question or asking a follow up question.
+#    - new_query: If the user is starting a new thread, asks a new question which is not related to previous thread.
+
+#    **RULES**:
+
+#    1. **Ongoing thread**: If the user input and conversation history indicates that user is answering to a follow-up question asked by bot,
+#    -> route: `<same as last route>`, reason: `follow_up`
+
+#    2. **Ticket Activity**: 
+#    - If the user input is to get details or information on their assigned or open support tickets
+#    - If the user input suggests that they want to resolve a ticket or some ticket.
+#    - If the user input has a support ticket ID and the user input suggests that they want to resolve a ticket
+#    - The conversation history and user input indicates that user was given a suggestion to answer a support ticket and they agree with that.
+#    - The conversation history and user input indicates that user was given a suggestion to answer a support ticket and they disagree with that and wants to fix it.
+#    -> route: `ticket_activity`, reason: `new_query`
+
+#    - If the user input has a support ticket ID and conversation history indicates that the last sub_route was resolve_ticket and user came back with a support ticket ID as they didn't mentioned it earlier
+#    - The conversation history and user input suggests that the user input is an answer to the follow up question by bot that asks them to elaborate on there disagreement with the suggested answer for support ticket. 
+#    -> route: `ticket_activity`, reason: `follow_up`
+
+#    3. **Evaluation Activity**: 
+#    - If the user input suggests that they want to start evaluating student's answers for an exam
+#    -> route: `evaluation_activity`, reason: `new_query`
+
+#    - If the user input has exam details and conversation history indicates that the last route was evaluation_activity and user came back with the additional exam details as they didnt mentioned it earlier
+#    -> route: `evaluation_activity`, reason: `follow_up`
+
+#    4. **Answer Key Generation Activity**:
+#    - If the user input suggests that they want to start creating answer keys for a particular exam
+#    -> route: `answer_key_generation_activity`, reason: `new_query`
+
+#    - If the user input has exam details and conversation history indicates that the last route was answer_key_generation_activity and user came back with the additional exam details as they didnt mentioned it earlier
+#    -> route: `answer_key_generation_activity`, reason: `follow_up`
+
+#    5. **Announcement Activity**: 
+#    - If the user input suggests that they need to create or share an announcement to all the students of a grade or entire institution
+#    -> route: `announcement_activity`, reason: `new_query`
+
+#    6. **Out of Scope**:  
+#    If the user input is not related to any of the defined activities,  
+#    -> route: `out_of_scope`, reason: `new_query`
+
+#   expected_output: |
+#    Respond **only** with JSON in this exact shape:
+#    {
+#       "route": "ticket_activity" | "evaluation_activity" | "announcement_activity" | "out_of_scope",
+#       "reason": "follow_up" | "new_query"
+#    }
+
+#   agent: supervisor

@@ -1,0 +1,24 @@
+create_announcement_task:
+  description: |
+    Your task is to call create_announcement tool strictly with the following payload:
+    {
+      "grade": {announcement_class},
+      "poster_email": {instructor_email},
+      "title": {announcement_title},
+      "content": {announcement_content},
+      "event_date": {announcement_event_date}
+    }
+
+    - If the tool call is successful, then return a success message for the user with the announcement ID.
+    - If the tool call failed, then return a failure message for the user.
+  expected_output: |
+    A JSON object with the following fields -
+    {
+      announcement_id: The "Announcement ID" returned from tool call
+      resolved: a boolean value, true if sucessfully resolved the ticket else false  
+      response: Formulate your response as:
+      - A user-friendly response indicating a success or failure of their ticket resolution task. 
+      - If success, then make sure to add the "Announcement ID" returned from tool call.
+    }
+  agent: announcement_approve
+

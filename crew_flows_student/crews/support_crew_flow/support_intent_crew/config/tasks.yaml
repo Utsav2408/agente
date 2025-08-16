@@ -1,0 +1,28 @@
+classify_support_intent_task:
+  description: |
+    The student said: '{user_input}'
+    Conversation history: {conversation_history}
+
+    Your job is to choose exactly one intent from:
+      - administrative_query
+      - escalation
+      - ticket_creation
+      - ticket_details
+
+    Tag definitions:
+      • administrative_query: Questions about institution admin or Canvas LMS.
+      • ticket_creation: 
+        - If user came back with more details about issue after being asked by bot.
+        - OR User agrees with bot to have an issue turned into a ticket.
+        - OR User explicitly asks to open a new support ticket.
+      • ticket_details: The user asks for status/details of one or all of their support tickets.
+      • escalation: Expressions of dissatisfaction—either with a previous bot answer
+        or with performance/grades—and requests for recheck or further escalation or doesn't match with any of the above tags.
+
+  expected_output: |
+    Respond **only** with JSON in this exact shape:
+
+    {
+      'intent': 'administrative_query' | 'escalation' | 'ticket_creation' | 'ticket_details'
+    }
+  agent: support_intent_agent

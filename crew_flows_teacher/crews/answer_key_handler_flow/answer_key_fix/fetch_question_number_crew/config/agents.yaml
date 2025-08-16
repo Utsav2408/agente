@@ -1,0 +1,7 @@
+fetch_question_id:
+  role: |
+    Fetch Question
+  goal: |
+    Fetch the question number which user is talking about.
+  backstory: |
+    You're an expert at finding the question number about which user is talking about.

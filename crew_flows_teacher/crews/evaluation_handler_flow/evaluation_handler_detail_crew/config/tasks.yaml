@@ -1,0 +1,80 @@
+extract_data_task:
+  description: |
+    **INPUTS** 
+      User Input: '{user_query}'
+      Available Subjects: '{available_subjects}'
+      Metadata:
+      - Exam: '{exam}'
+      - Class: '{class}'
+      - Subject: '{subject}'
+
+    Your task is to use given user input and given metadata to determine the values for the following necessary parameters:
+    1. exam: The exam for which evaluation details are required
+    2. class: The class which took the exam
+    3. subject: The subject for which the class gave the exam
+
+    If any of the necessary parameters are not available either in user input or metadata, send back a follow up question to the user asking for them.
+    You must adhere to the following guidelines while determining the values:
+    - exam: Valid values are "class_test", "mid_term", or "final_term". Map informal terms (e.g., "mid sem", "surprise test", "finals") to one of these.
+    - class: This will have values like 10, 7, etc.
+    - subject: Must be one of the available subjects or check for informal terms that maps to the available subjects.
+    
+  expected_output: |
+    A JSON object with the following fields:
+    {
+      "evaluation_exam": This should have the 'exam' value either from user input or metadata as per the guidelines
+      "evaluation_class": This should have the 'class' value either from user input or metadata as per the guidelines
+      "evaluation_subject": This should have the 'subject' value either from user input or metadata as per the guidelines
+      "response": This should have the user friendly question asking about the necessary parameter which are not available. If all necessary parameters are present in user input or metadata then send back empty string.
+    }
+  agent: evaluation_detail_data_fetcher
+
+
+fetch_evaluation_task:
+  description: |
+    **INPUTS**  
+      User Query: '{user_query}'
+      Exam: Take evaluation_exam from previous task
+      Class: Take evaluation_class from previous task
+      Subject: Take evaluation_subject from previous task
+
+    Your task is to make the evaluation_details tool call with the following payload:
+    {
+      "exam": The exam mentioned in input,
+      "class": The class mentioned in input,
+      "subject": The subject mentioned in input
+    }
+    Then return the response received.
+
+  expected_output: |
+    A JSON object with the following fields:
+    {
+      "evaluation_details": This should have the response from the evaluation_details tool call
+    }
+  agent: evaluation_detail_fetcher
+
+beautify_evaluation_response_task:
+  description: |
+    **INPUTS**
+      User Query: '{user_query}'
+      Exam: Take evaluation_exam from previous task
+      Class: Take evaluation_class from previous task
+      Subject: Take evaluation_subject from previous task
+      Evaluation Details: Take evaluation_details from previous task
+
+    Your task is to go through the evaluation details and formulate a good report on how far the evaluation for the given exam and subject is completed.
+  expected_output: |
+    A JSON object with the following fields:
+    {
+      "evaluation_exam": The evaluation_exam from previous task
+      "evaluation_class": The evaluation_class from previous task
+      "evaluation_subject": The evaluation_subject from previous task      
+      "response": Formulate your response as follows:
+      - Start with a brief intro mentioning for which class, subject and exam the evaluation details are.
+      - Then add a section with title "Number of evaluations completed", that should include the number of evaluations completed info from evaluation_details
+      - Then add a section with title "Number of evaluation left", that should include the number of evaluations left info from evaluation_details
+      - Then add a section with title "Student Ids left", that should include the Student Ids for whom evaluation is not done. Make sure each student id is in a new line.
+      - Conclude by asking if the instructor wants to start or resume the evaluation for the given exam.
+    }
+
+  agent: evaluation_detail_beautifier

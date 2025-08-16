@@ -1,0 +1,59 @@
+# issue_validator_task:
+#   description: |
+#     Student input: "{user_input}"
+#     Conversation history: {conversation_history}
+
+#     Your job is to:
+#       1. Determine whether `{user_input}` includes a substantive description of the student's problem.
+#       2. If not, scan `{conversation_history}` for the most recent detailed issue description.
+#       3. If you still lack sufficient detail, craft a clarifying follow-up question asking the student for more information.
+#       4. Otherwise, no follow-up is needed.
+
+#     Always output exactly this JSON structure:
+#     {
+#       "follow_up_question": "<your question or empty string>",
+#       "follow_up_needed": <true|false>
+#     }
+#   expected_output: |
+#     A JSON object with the two fields:
+#     - response: The follow up question, if required, asking student for more information
+#     - follow_up_needed: a boolean (true if follow up needed from the student)
+#   agent: issue_validator_agent
+
+raise_support_ticket_task:
+  description: |
+    The student has agreed to raise a support ticket or might have sharedf more information on the issue they are facing:
+    '{user_input}'
+
+    Student ID: {student_id}
+    Full conversation history: {conversation_history}
+
+    Your job is to:
+      1. **Reconstruct the full issue description**:
+         - If `{user_input}` contains substantive details beyond “yes”/“sure”/etc., append those to the last user-described issue in the conversation history.
+         - Otherwise, locate the most recent detailed description of the problem from `conversation_history`.
+      2. From that full issue description, create:
+         - **support_summary**: A single, concise sentence capturing the core of the issue.
+         - **support_content**: The complete issue description.
+      3. Infer **support_type** as:
+         - `"course"` if it concerns material, assignments, exams, grades, or feedback.
+         - `"administrative"` if it concerns the institution administration or Canvas LMS.
+      4. Call the `raise_support_ticket_tool` with **exactly** this JSON payload:
+         {
+           "student_id": Student ID,
+           "support_type": "<course|administrative>",
+           "support_summary": "<your one-sentence summary>",
+           "support_content": "<full reconstructed issue description>"
+         }
+
+    After calling the tool:
+      - If it confirms success, respond:
+        "Support ticket successfully created." with the support ticket id returned 
+      - If it returns an error or failure, respond:
+        "Failed to create support ticket. Please try again later or contact admin."
+
+  expected_output: |
+    A JSON object with the following fields -
+    - response: A user-facing confirmation message indicating success or failure of ticket creation. If ticket creation is successful, make sure your confirmation message includes support ticket ID.
+    - support_ticket_id: If ticket creation is success, then pass the support ticket id here
+  agent: raise_support_ticket_agent

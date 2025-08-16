@@ -1,0 +1,49 @@
+classify_subject_task:
+  description: |
+    The issue in support ticket states: "{support_ticket_issue}"
+    Available subjects for the student who raised the support ticket: {available_subjects}
+
+    Your task is to go through the student's issue stated in support ticket and select the best or most relevant subjects from the available subjects.
+  expected_output: |
+    A JSON object:
+    {
+      "subjects": ["subject1", "subject2", ... subject or subjects associated to the support ticket issue]
+    }
+  agent: subject_classifier
+
+retrieve_info_task:
+  description: |
+    The support ticket's issue states: "{support_ticket_issue}"
+    Student's grade or class they are in : "{grade}"
+    Classified Subject List: The list of subjects from previous task
+
+    Your task is to gather relevant context using "retrieve_for_subjective_agent" tool. 
+    Call the tool using the following payload:
+    {
+      "query": Support Ticket's Issue,
+      "subject_names": classified subject list,
+      "grade": the grade or class of the student who raised the support ticket
+    }
+  expected_output: |
+    A JSON object:
+    {
+      "context": The context from the result of tool call,
+      "source": The List of source citations from the result of tool call 
+    }  
+  agent: retriever
+
+generate_final_answer_task:
+  description: |
+    The support ticket's issue states: "{support_ticket_issue}"
+    Context: Retrieved Context from previous task
+    Source: List of source citations from previous task
+
+    Your task is to analyse the support ticket's issue and the retrieved context to generate a user friendly response.
+    Make sure you add the list of source citations at the end of your answers.
+  expected_output: |
+    A JSON object:
+    {
+      "response": "The user-facing answer, with citation and encouragement"
+    }
+
+  agent: answer_generator

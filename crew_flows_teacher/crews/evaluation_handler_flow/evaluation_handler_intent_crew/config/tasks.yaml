@@ -1,0 +1,49 @@
+route_evaluation_action_task:
+  description: |
+    **INPUTS**  
+      User query: '{user_input}'  
+      Conversation history: '{conversation_history}'
+      Metadata: '{metadata}'
+
+    User Query holds the user input, 
+    Metadata holds the last sub_route taken,
+    Conversation history holds the chat history between user and bot which includes user inputs, bot inputs, for each turn which route and subroute was taken by bot.
+
+    In this case, Route is already decided as evaluation_activity.
+    Using available conversation history, metadata and the current input, determine the appropriate sub route for user's query.
+
+    **Possible sub routes**:
+    - evaluation_details: intent to fetch details or updates regarding the evaluation of student's answers within a class for a particular subject and exam
+    - evaluation_feedback: intent to evaluate, mark or review a student's answers for a particular subject and exam
+    - approve_feedback: If conversation history indicates that user is agreeing over bot's evaluated feedback for a student's answer
+    - fix_feedback: If conversation history indicates that user is disagreeing over bot's evaluated feedback for a student's answer or wants to improve that feedback
+
+    **RULES**:
+    1. **Ongoing thread**: 
+      - The conversation history and user input indicates that user was given an updated evaluation feedback for student's answers to a specific subject's exam and they agree with that,
+      -> sub_route: `approve_feedback`
+      - If the user input and conversation history indicates that user is answering to a follow-up question asked by bot
+      -> sub_route: `<same as last sub_route>`
+    2. **Evaluation Details**: If the user input is to get details or information on how far evaluation of student's answers within a class for a particular subject and exam is completed,
+      -> sub_route: `evaluation_details`
+    3. **Evaluation Feedback**: 
+      - If the user input suggests that they want to mark, review or evaluate a student's answers for a particular subject and exam.
+      - If the user input has details about exam or subject and the user input suggests that they want to evaluate student's answers or conversation history indicates that the last sub_route was evaluation_feedback and user came back with exam or subject details as they didn't mentioned it earlier
+      -> sub_route: `evaluation_feedback`
+    4. **Approve Suggested Evaluation Feedback for a Student's Answer**:
+      - The conversation history and user input indicates that user was given a suggested evaluation feedback for student's answers to a specific subject's exam and they agree with that.
+      -> sub_route: `approve_feedback`
+    5. **Fix Suggested Evaluation Feedback for a Student's Answer**: 
+      - The conversation history and user input indicates that user was given a suggested evaluation feedback for a student's answers to a specific subject's exam and they disagree with that and wants to fix it.
+      - The conversation history and user input suggests that the user input is an answer to the follow up question by bot that asks them to elaborate on there disagreement with the suggested evaluation feedback.
+      -> sub_route: `fix_feedback`
+  expected_output: |
+    Respond **only** with JSON in this exact shape:
+    {
+      "sub_route": 
+        "evaluation_details" |
+        "evaluation_feedback" |
+        "approve_feedback" |
+        "fix_feedback"
+    }
+  agent: handle_evaluation_supervisor

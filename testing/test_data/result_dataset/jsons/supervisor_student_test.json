@@ -1,0 +1,102 @@
+[
+  {
+    "question": "Can you explain the difference between microeconomics and macroeconomics again?",
+    "route": "course",
+    "predicted_route": "course"
+  },
+  {
+    "question": "What's the reading list for the next module in Environmental Science?",
+    "route": "course",
+    "predicted_route": "course"
+  },
+  {
+    "question": "I didn't understand the example you gave about Newton's Third Law in yesterday's lecture.",
+    "route": "course",
+    "predicted_route": "course"
+  },
+  {
+    "question": "Will the Advanced Statistics class cover regression analysis in detail?",
+    "route": "course",
+    "predicted_route": "course"
+  },
+  {
+    "question": "I scored lower than expected on the midterm — can you suggest specific topics I should review?",
+    "route": "performance",
+    "predicted_route": "performance"
+  },
+  {
+    "question": "When will we get the graded assignments back for the last quiz?",
+    "route": "performance",
+    "predicted_route": "performance"
+  },
+  {
+    "question": "My essay feedback mentioned “weak thesis statement.” Could you clarify what you meant?",
+    "route": "performance",
+    "predicted_route": "performance"
+  },
+  {
+    "question": "How can I improve my time management for the upcoming final exams?",
+    "route": "performance",
+    "predicted_route": "performance"
+  },
+  {
+    "question": "I've already submitted a ticket for my Canvas login issue — any update on that?",
+    "route": "support",
+    "predicted_route": "support"
+  },
+  {
+    "question": "How do I request an official transcript from the registrar's office?",
+    "route": "support",
+    "predicted_route": "support"
+  },
+  {
+    "question": "The quiz isn't loading on Canvas even after refreshing — what should I do?",
+    "route": "support",
+    "predicted_route": "support"
+  },
+  {
+    "question": "I created a ticket for a broken video link in the course, but it's been a week with no reply.",
+    "route": "support",
+    "predicted_route": "support"
+  },
+  {
+    "question": "I still don't understand how photosynthesis links to cellular respiration.",
+    "route": "course",
+    "predicted_route": "course"
+  },
+  {
+    "question": "Could you share practice problems for the calculus integration section?",
+    "route": "course",
+    "predicted_route": "course"
+  },
+  {
+    "question": "You mentioned in the feedback that my argument lacked evidence — can you give examples?",
+    "route": "performance",
+    "predicted_route": "performance"
+  },
+  {
+    "question": "What's the minimum passing grade for this course?",
+    "route": "performance",
+    "predicted_route": "course"
+  },
+  {
+    "question": "I emailed support yesterday about my account being locked — is there any progress?",
+    "route": "support",
+    "predicted_route": "support"
+  },
+  {
+    "question": "Is there a phone number to contact the Canvas help desk directly?",
+    "route": "support",
+    "predicted_route": "support"
+  },
+  {
+    "question": "Regarding our last discussion on climate models — could you explain the limitations again?",
+    "route": "course",
+    "predicted_route": "course"
+  },
+  {
+    "question": "Are there any workshops offered to help students prepare for oral presentations?",
+    "route": "performance",
+    "predicted_route": "course"
+  }
+]

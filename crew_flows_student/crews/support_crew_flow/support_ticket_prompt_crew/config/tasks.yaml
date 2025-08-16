@@ -1,0 +1,12 @@
+support_ticket_prompt_task:
+  description: |
+    The student's latest query: "{user_input}"
+    Conversation history: {conversation_history}
+
+    Write a short, two-part response that:
+      1. Summarizes the student's issue in one brief sentence.
+      2. Asks: “Would you like me to raise a support ticket for this?”
+
+  expected_output: |
+    A single, user-facing message.
+  agent: support_ticket_prompt_agent
